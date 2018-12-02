@@ -6,6 +6,7 @@ const actions = {
   keygen: 'keygen',
   delta: 'delta',
   token: 'token',
+  adjust: 'adjust',
 };
 
 const keygen = async () => {
@@ -32,6 +33,17 @@ const token = async (k, word) => {
   formData.append('action', actions.token);
   formData.append('k1', k);
   formData.append('k2', word);
+
+  const result = await axios.get(baseLink, formData);
+  return result.data;
+};
+
+const adjust = async (tok, delta) => {
+  const formData = new FormData();
+
+  formData.append('action', actions.adjust);
+  formData.append('tok', tok);
+  formData.append('delta', delta);
 
   const result = await axios.get(baseLink, formData);
   return result.data;
