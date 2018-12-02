@@ -33,3 +33,5 @@ const token = async (k, word) =>
 
 const adjust = async (tok, delta) =>
   baseRequest({ action: actions.adjust, tok, delta });
+
+export { actions, keygen, delta, token, adjust };
