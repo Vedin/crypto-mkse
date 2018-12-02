@@ -7,6 +7,13 @@ const actions = {
   keygen: 'keygen',
 };
 
+const keygen = async () => {
+  const formData = new FormData();
+  formData.append('action', actions.keygen);
+  const result = await axios.get(baseLink, formData);
+  return result.data;
+};
+
 const delta = async (k1, k2) => {
   const formData = new FormData();
 
